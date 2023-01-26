@@ -17,8 +17,21 @@
                 <a href="/" class="text-2xl text-white">PetNet</a>
             </div>
 
+            <div class="search">
+                <form method="get" action="/search/">
+                    <input type="search" name="query" placeholder="Search">
+                    <button>Search</button>
+                </form>
+            </div>
+
             <div class="menu flex space-x-4">
                 {% menu %}
+
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'myaccount' %}" class="text-white">My Account</a>
+                <a href="{% url 'my_store' %}" class="text-white">My store</a>
+                {% endif %}
+               
             </div>
         </nav>
 
