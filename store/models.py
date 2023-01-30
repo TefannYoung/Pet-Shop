@@ -59,7 +59,7 @@ class Product(models.Model):
 
                 return self.thumbnail.url
             else:
-                return 'media/uploads/pets.jpg'
+                return 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png'
             # https://via.placeholder.com/240x240x.jpg
 
     
@@ -74,3 +74,23 @@ class Product(models.Model):
         thumbnail = File(thumb_io, name=name)
 
         return thumbnail
+    
+class Order(models.Model):
+    first_name = models.CharField(max_length=225)
+    last_name = models.CharField(max_length=225)
+    address = models.CharField(max_length=225)
+    zipcode = models.CharField(max_length=225)
+    city = models.CharField(max_length=225)
+    paid_amount = models.IntegerField(blank=True, null=True)
+    is_paid = models.BooleanField(default=False)
+    merchant_id = models.CharField(max_length=225)
+    created_by = models.ForeignKey(User, related_name='orders', on_delete=models.SET_NULL, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='items', on_delete=models.CASCADE)
+    price = models.IntegerField()
+    quantity = models.IntegerField(default=1)
+    
+    
