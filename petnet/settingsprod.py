@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '*f^12kjxp1cn$*oy&c3u(kg-s&o0@l86f(g+4r(+a*gnqggnal4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.petnet.com', 'petnet.com']
 
 CART_SESSION_ID = 'cart'
 SESSION_COOKIE_AGE = 86400
@@ -64,7 +64,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'petnet.urls'
 
-WEBSITE_URL = 'http://127.0.0.1:8000/'
+WEBSITE_URL = 'http://petnet.com/'
 
 STRIPE_PUB_KEY = 'pk_test_51MW6Q7Aogw2Y69uQugp1fCCoYivws6OVDV5GVSauka1b6sYqtj1BhKVtZhFecORKLUmbk97BjD6IeFyxhHVSOXHw00rSqDRYDY'
 STRIPE_SECRET_KEY = 'sk_test_51MW6Q7Aogw2Y69uQAUtX40NZhAMVaeOIRcNlqpm743U1aDXqPzxJ5hLdVUhDS2nLdBFmMfkRrW0Of5bUtIqgMXQ900mLKDB1Fc'
